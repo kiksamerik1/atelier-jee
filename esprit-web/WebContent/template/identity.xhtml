@@ -1,0 +1,11 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+         <h:form id="form_identity" rendered="#{authenticationBean.userType != null}">
+         <h:panelGrid id="layout_form_identity" columns="2">
+         	 <h:outputText id="label_logged_in" value="Logged in as #{authenticationBean.user.login}" />
+         	<h:commandLink id="link_logout" action="#{authenticationBean.logout}" value="logout" />
+         </h:panelGrid>       	
+		 </h:form>	
+</ui:composition>

@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+                	
+		<h:form id="prod_form" rendered="#{productBean.formDisplayed}">
+			<h:panelGrid columns="2">
+				<f:facet name="header">
+					<h:inputHidden id="id_input_hidden" value="#{productBean.product.id}" />
+					<!--  <h:inputHidden id="categotyId_input_hidden" value="#{productBean.categoryId}" />-->
+				</f:facet>
+				<h:outputText id="id_label" value="id" />
+				<h:inputText id="id_input" value="#{productBean.product.id}" />
+				<h:outputText id="name_label" value="name" />
+				<h:inputText id="name_input" value="#{productBean.product.name}" />
+				<h:outputText id="unit_cost_label" value="unit cost" />
+				<h:inputText id="unit_cost_input" value="#{productBean.product.unitCost}" />
+				<h:outputText id="category_label" value="category" />
+				<h:selectOneMenu id="category_input" value="#{productBean.categoryId}">
+					<f:selectItems id="category_items" value="#{categoryBean.categoriesSelectItems}" />
+				</h:selectOneMenu>
+				<h:commandButton id="update_submit" action="#{productBean.doSaveOrUpdateProduct}" value="save" />
+				<h:commandButton id="delete_submit" action="#{productBean.doDeleteProduct}" value="delete" />				
+			</h:panelGrid>
+		</h:form>
+</ui:composition>

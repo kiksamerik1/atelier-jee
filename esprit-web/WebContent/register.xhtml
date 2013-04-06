@@ -1,0 +1,77 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/template.xhtml">
+                
+         <ui:define name="pageTitle">register</ui:define>
+         <ui:define name="pageContent">
+         <h2>Customer registration</h2>
+         <h:form id="form_cust_register" >
+         	<h:panelGrid id="layout_form_cust_register" columns="3">
+         		
+         		<h:outputText id="label_login" value="Login" />
+         		<h:inputText id="input_login" value="#{registerBean.customer.login}" required="true" requiredMessage="login is required" validator="#{registerBean.validateLogin}">
+         			<f:ajax event="keyup" execute="@this" render="msg_input_login"/>
+         		</h:inputText>
+         		<h:message id="msg_input_login" for="input_login" styleClass="error" />
+         		
+         		<h:outputText id="label_password" value="Password" />
+         		<h:inputSecret id="input_password" value="#{registerBean.customer.password}" required="true" requiredMessage="password is required" validatorMessage="between 6 and 12 characters">
+         			<f:validateLength minimum="6" maximum="12"/>
+         			<f:ajax event="keyup" execute="@this" render="msg_input_password"/>
+         		</h:inputSecret>
+         		<h:message id="msg_input_password" for="input_password" styleClass="error"/>
+         		
+         		<h:outputText id="label_email" value="Your email"  />
+         		<h:inputText id="input_email" value="#{registerBean.customer.email}" required="true" requiredMessage="email is required" validatorMessage="invalid email address">
+         			<f:ajax event="keyup" execute="@this" render="msg_input_email"/>
+         			<f:validateRegex pattern="^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" />
+         		</h:inputText>
+         		<h:message id="msg_input_email" for="input_email" styleClass="error"/>
+         		
+         		<h:outputText id="label_firstname" value="Firstname"  />
+         		<h:inputText id="input_firstname" value="#{registerBean.customer.firstname}" required="true" requiredMessage="firstname is required" >
+         			<f:ajax event="keyup" execute="@this" render="msg_input_firstname"/>
+         		</h:inputText>
+         		<h:message id="msg_input_firstname" for="input_firstname" styleClass="error"/>
+         		
+         		<h:outputText id="label_lastname" value="Lastname" />
+         		<h:inputText id="input_lastname" value="#{registerBean.customer.lastname}"  required="true" requiredMessage="lastname is required">
+         			<f:ajax event="keyup" execute="@this" render="msg_input_lastname"/>
+         		</h:inputText>
+         		<h:message id="msg_input_lastname" for="input_lastname" styleClass="error"/>
+         		
+         		<h:outputText id="label_birth_date" value="Date of birth" />
+         		<h:inputText id="input_birth_date" value="#{registerBean.customer.birthDate}" required="true" requiredMessage="Date of birth is required" converterMessage="ex:24/09/2009">
+         			<f:ajax event="keyup" execute="@this" render="msg_input_birth_date"/>
+         			<f:convertDateTime type="date" pattern="dd/MM/yyyy"/>
+         		</h:inputText>
+         		<h:message id="msg_input_birth_date" for="input_birth_date" styleClass="error"/>
+         		
+         		<h:outputText id="label_phone_number" value="Phone number"  />
+         		<h:inputText id="input_phone_number" value="#{registerBean.customer.phoneNumber}" required="true" requiredMessage="Phone number is required" >
+         			<f:ajax event="keyup" execute="@this" render="msg_input_phone_number"/>
+         		</h:inputText>
+         		<h:message  id="msg_input_phone_number" for="input_phone_number" styleClass="error"/>
+         		
+         		
+         		<h:commandButton id="submit_register" value="submit" >
+         			<f:ajax event="click" execute="@form" listener="#{registerBean.register}" render="@form" />
+         		</h:commandButton>
+         		<h:outputText id="label_response" value="#{registerBean.response}" styleClass="info"/>    		
+         	</h:panelGrid>
+		         <script type="text/javascript">
+		         		 
+		         			$("#form_cust_register\\:input_birth_date").focusin(function(){
+				        	 	$(this).mask("99/99/9999");
+				             });
+				         	$("#form_cust_register\\:input_phone_number").focusin(function(){
+				        	 	$(this).mask("99-99-99-99");
+				         	});	
+				         
+				         
+		         </script>
+         </h:form>
+         </ui:define>        
+</ui:composition>

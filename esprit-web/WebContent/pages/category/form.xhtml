@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+                	
+		<h:form id="cat_form" rendered="#{categoryBean.formDisplayed}">
+			<h:panelGrid columns="2">
+				<f:facet name="header">
+					<h:inputHidden id="id_input_hidden" value="#{categoryBean.category.id}" />
+				</f:facet>
+				<h:outputText id="id_label" value="id" />
+				<h:inputText id="id_input" value="#{categoryBean.category.id}" />
+				<h:outputText id="name_label" value="name" />
+				<h:inputText id="name_input" value="#{categoryBean.category.name}" />
+				<h:commandButton id="update_submit" action="#{categoryBean.doSaveOrUpdateCategory}" value="save" />
+				<h:commandButton id="delete_submit" action="#{categoryBean.doDeleteCategory}" value="delete" />				
+			</h:panelGrid>
+		</h:form>
+</ui:composition>

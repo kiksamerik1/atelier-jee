@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+                	
+	<h:form id="list_cat_form">
+		
+		<h:dataTable id="cat_table"  rendered="#{not empty categoryBean.categories}" value="#{categoryBean.categories}" var="cat" border="1">
+			<f:facet name="header">
+				<h:outputText value="all categories" />
+			</f:facet>
+			<h:column id="id_col">
+				<f:facet name="header">
+				<h:outputText value="#" />
+			</f:facet>
+			<h:outputText value="#{cat.id}" />
+			</h:column>
+			<h:column id="name_col">
+				<f:facet name="header">
+				<h:outputText value="name" />
+			</f:facet>
+			<h:outputText value="#{cat.name}" />
+			</h:column>
+			<h:column id="action_col">
+				<f:facet name="header">
+				<h:outputText value="action" />
+			</f:facet>
+			<!-- actions to go here -->
+			<h:commandButton value="select" >
+				<f:setPropertyActionListener target="#{categoryBean.category}" value="#{cat}"/>
+				<f:setPropertyActionListener target="#{categoryBean.formDisplayed}" value="true"/>
+				</h:commandButton>				
+			</h:column>
+		</h:dataTable>
+		<h:commandButton value="new.." >
+			<f:setPropertyActionListener target="#{categoryBean.formDisplayed}" value="true"/>
+		</h:commandButton>
+	</h:form>
+</ui:composition>
