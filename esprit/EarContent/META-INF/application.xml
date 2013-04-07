@@ -4,7 +4,7 @@
   <module>
     <web>
       <web-uri>esprit-web.war</web-uri>
-      <context-root>esprit</context-root>
+      <context-root>esprit-web</context-root>
     </web>
   </module>
   <module>

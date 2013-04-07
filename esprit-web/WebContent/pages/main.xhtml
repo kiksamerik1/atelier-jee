@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-	<h:head>
-		<title>main page</title>
-	</h:head>
-	<h:body>
-		<h1>
-			You're logged in as #{authenticationBean.user.login}<br></br>
-			Your email is: #{authenticationBean.user.email}
-			
-		</h1>
-	</h:body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/template.xhtml">
+                	
+			<ui:define name="pageTitle">main</ui:define>		
+			<ui:define name="pageContent">
+				...MAIN...
+			</ui:define>
+</ui:composition>

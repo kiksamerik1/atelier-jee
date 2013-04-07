@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-	<h:head>
-		<title>log in</title>
-	</h:head>
-	<h:body>
-		<h1>Log in</h1>
-		<h:form>
-			<h:panelGrid columns="1">
-				<h:commandLink action="/welcome" value="WELCOME" />
-			</h:panelGrid>
-		</h:form>
-		<h:form>
-			<h:panelGrid columns="2">
-				<h:outputText value="login" />
-				<h:inputText value="#{authenticationBean.user.login}" />
-				<h:outputText value="password" />
-				<h:inputSecret value="#{authenticationBean.user.password}" />
-				<h:commandButton value="submit" action="#{authenticationBean.authenticate}" />
-			</h:panelGrid>
-		</h:form>
-	</h:body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/template.xhtml">
+                	
+			<ui:define name="pageTitle">log in</ui:define>		
+			<ui:define name="pageContent">
+				<h2>Log In</h2>
+				<h:form id="form_login">
+					<h:panelGrid columns="2">
+						<h:outputText value="login" />
+						<h:inputText value="#{authenticationBean.user.login}" />
+						<h:outputText value="password" />
+						<h:inputSecret value="#{authenticationBean.user.password}" />
+						<h:commandButton id="submit_login" value="submit" action="#{authenticationBean.login}" />
+						<h:message for="submit_login" styleClass="error"/>
+					</h:panelGrid>
+				</h:form>
+			</ui:define>
+</ui:composition>
