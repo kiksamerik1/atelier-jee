@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13640896495460" configfile="/esprit-web/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13653326882960" configfile="/esprit-web/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="welcome.xhtml" x="61" y="245" id="pf13653327899371" outlinks="pf13653327899372" inlinks="pf13653327899373" path="/welcome.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/login.xhtml" x="300" y="245" id="pf13653327899374" outlinks="pf13653327899373 pf13653333514685 pf13653333514686" inlinks="pf13653327899372" path="/pages/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/main.xhtml" x="541" y="124" id="pf13653333514687" inlinks="pf13653333514685" path="/pages/main.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/error.xhtml" x="552" y="348" id="pf13653333514688" inlinks="pf13653333514686" path="/pages/error.xhtml"/>
+  <links id="pf13653327899372" target="pf13653327899374" source="pf13653327899371" outcome="nav-to-login"/>
+  <links id="pf13653327899373" target="pf13653327899371" source="pf13653327899374" outcome="nav-to-welcome"/>
+  <links id="pf13653333514685" target="pf13653333514687" source="pf13653327899374" outcome="success"/>
+  <links id="pf13653333514686" target="pf13653333514688" source="pf13653327899374" outcome="failure"/>
+</pageflow:Pageflow>
